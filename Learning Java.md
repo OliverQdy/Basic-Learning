@@ -53,12 +53,18 @@
 <li>文档注释<code>/**...*/</code>：注释若干行，并写入 javadoc文档</li>
 </ul>
 <h3 id="类型转换">2.4类型转换</h3>
+<h4 id="自动类型转换">自动类型转换</h4>
 <p>自动类型转换需要满足下面的两个条件：</p>
 <ul>
 <li>目标类型与原类型兼容</li>
 <li>目标类型的字节数大于或等于原类型字节数</li>
 <li>由于布尔类型其本身所代表的特殊含义，不能与其他基本类型进行类型的转换（or fault）</li>
 </ul>
+<h4 id="强制类型转换：">强制类型转换：</h4>
+<p>形如</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">double</span> b <span class="token operator">=</span> <span class="token number">10.3</span><span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>b<span class="token punctuation">;</span>
+</code></pre>
 <h3 id="运算符">3.1运算符</h3>
 <p>表格中的例子中，变量<code>a</code>的值为60，变量<code>b</code>的值为13：</p>
 
