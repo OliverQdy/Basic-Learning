@@ -59,17 +59,40 @@
 <li>由于布尔类型其本身所代表的特殊含义，不能与其他基本类型进行类型的转换（or fault）</li>
 </ul>
 <h3 id="运算符">3.1运算符</h3>
-<p>表格中的例子中，变量<code>a</code>的值为60，变量<code>b</code>的值为13：<br>
-位运算符</p>
-<p>| 名称 | 描述 | 举例|<br>
-|^        |按位异或 如果相对应位值相同，则结果为0，否则为1 |（a^b）得到49，即 0011 0001</p>
-<ol>
-<li>|  Item     |  Value  |  Qty  |</li>
-<li>|  :-------  |  ----:    |  :—:   |</li>
-<li>|  Computer  |  $1600  |  5  |</li>
-<li>|  Phone  |  $12  |  12  |</li>
-<li>|  Pipe  |  $1  |  234  |</li>
-</ol>
+<p>表格中的例子中，变量<code>a</code>的值为60，变量<code>b</code>的值为13：</p>
+
+<table>
+<thead>
+<tr>
+<th>位运算符</th>
+<th>名称</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+<td>相对应位置的值进行异或运算</td>
+<td>（a^b）得到49，即 0011 0001</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>按位右移补零</td>
+<td>左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充</td>
+<td>a&gt;&gt;&gt;2得到15即0000 1111</td>
+</tr>
+</tbody>
+</table><ul>
+<li><strong>注意区分逻辑运算与按位运算中符号相同的地方</strong></li>
+</ul>
+<h3 id="三目运算符">3.1.1三目运算符</h3>
+<p><strong>语法形式：布尔表达式？表达式1 : 表达式2</strong></p>
+<p>运算过程：如果布尔表达式的值为<code>true</code>  ，则返回  <code>表达式1</code>  的值，否则返回  <code>表达式2</code>  的值。</p>
+<h4 id="just-a-try">Just a try</h4>
+<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG"></p>
+<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG"></p>
 <blockquote>
 <p>note:## 离线写博客</p>
 </blockquote>
