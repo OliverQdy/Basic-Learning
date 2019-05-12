@@ -5,23 +5,16 @@
 
 <h1 id="java初步学习">Java初步学习</h1>
 <h2 id="目录">目录</h2>
-<p>[TOC]</p>
+<pre><code>[TOC]
+</code></pre>
 <h2 id="注意知识点">注意知识点</h2>
 <h3 id="java标识符">2.1 Java标识符</h3>
 <p>关于 Java 标识符，有几点需要注意的：</p>
 <ul>
-<li>
-<p>Java 标识符由数字，字母<code>A-Z或者a-z</code>和下划线<code>_</code>，美元符号<code>$</code>组成。</p>
-</li>
-<li>
-<p>所有的标识符都应该以字母<code>A-Z或者a-z</code>,美元符<code>$</code>、或者下划线<code>_</code>开始，首位不能是数字。</p>
-</li>
-<li>
-<p>关键字不能用作标识符。</p>
-</li>
-<li>
-<p>在 Java 中是区分大小写的。</p>
-</li>
+<li>Java 标识符由数字，字母<code>A-Z或者a-z</code>和下划线<code>_</code>，美元符号<code>$</code>组成。</li>
+<li>所有的标识符都应该以字母<code>A-Z或者a-z</code>,美元符<code>$</code>、或者下划线<code>_</code>开始，首位不能是数字。</li>
+<li>关键字不能用作标识符。</li>
+<li>在 Java 中是区分大小写的。</li>
 </ul>
 <blockquote>
 <p>在 Java 中，还有一些约定俗成的命名规则，</p>
@@ -36,7 +29,8 @@
 <p>常量名。基本数据类型的常量名使用全部大写字母，字与字之间用下划线分隔。对象常量可大小混写。例如，SIZE_NAME。</p>
 </li>
 <li>
-<p>变量名。可大小写混写，首字符小写，字间分隔符用字的首字母大写。不用下划线，少用美元符号。给变量命名是尽量做到见名知意。  --From shiyanlou</p>
+<p>变量名。可大小写混写，首字符小写，字间分隔符用字的首字母大写。不用下划线，少用美元符号。给变量命名是尽量做到见名知意。<br>
+–From shiyanlou</p>
 </li>
 </ol>
 </blockquote>
@@ -48,7 +42,9 @@
 </li>
 <li>
 <p><strong>final 数据类型 常量名称1 = 值1， 常量名称2 = 值2，……常量名称n = 值n；</strong></p>
-<p>注 (1)在Java语法中，常量也可以首先声明，然后再进行赋值，但是只能赋值一次  (2)final 用于声明属性（常量），方法和类，分别表示属性一旦被分配内存空间就必须初始化, 它的含义是“这是无法改变的”或者“终态的”</p>
+<p>注<br>
+(1)在Java语法中，常量也可以首先声明，然后再进行赋值，但是只能赋值一次<br>
+(2)final 用于声明属性（常量），方法和类，分别表示属性一旦被分配内存空间就必须初始化, 它的含义是“这是无法改变的”或者“终态的”</p>
 </li>
 </ul>
 <h3 id="关于注释">2.3关于注释</h3>
@@ -59,50 +55,52 @@
 <h3 id="类型转换">2.4类型转换</h3>
 <p>自动类型转换需要满足下面的两个条件：</p>
 <ul>
-<li>
-<p>目标类型与原类型兼容</p>
-</li>
-<li>
-<p>目标类型的字节数大于或等于原类型字节数</p>
-</li>
-<li>
-<p>由于布尔类型其本身所代表的特殊含义，不能与其他基本类型进行类型的转换（or fault）</p>
-</li>
+<li>目标类型与原类型兼容</li>
+<li>目标类型的字节数大于或等于原类型字节数</li>
+<li>由于布尔类型其本身所代表的特殊含义，不能与其他基本类型进行类型的转换（or fault）</li>
 </ul>
 <h3 id="运算符">3.1运算符</h3>
 <p>表格中的例子中，变量<code>a</code>的值为60，变量<code>b</code>的值为13：</p>
-<p>位运算符</p>
-<p>名称</p>
-<p>描述</p>
-<p>举例</p>
-<p>^</p>
-<p>按位异或</p>
-<p>相对应位置的值进行异或运算</p>
-<p>（a^b）得到49，即 0011 0001</p>
-<blockquote>
-<blockquote>
-<blockquote></blockquote>
-</blockquote>
-</blockquote>
-<p>按位右移补零</p>
-<p>左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充</p>
-<p>a&gt;&gt;&gt;2得到15即0000 1111</p>
-<ul>
+
+<table>
+<thead>
+<tr>
+<th>位运算符</th>
+<th>名称</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+<td>相对应位置的值进行异或运算</td>
+<td>（a^b）得到49，即 0011 0001</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>按位右移补零</td>
+<td>左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充</td>
+<td>a&gt;&gt;&gt;2得到15即0000 1111</td>
+</tr>
+</tbody>
+</table><ul>
 <li><strong>注意区分逻辑运算与按位运算中符号相同的地方</strong></li>
 </ul>
 <h3 id="三目运算符">3.1.1三目运算符</h3>
 <p><strong>语法形式：布尔表达式？表达式1 : 表达式2</strong></p>
-<p>运算过程：如果布尔表达式的值为<code>true</code> ，则返回 <code>表达式1</code> 的值，否则返回 <code>表达式2</code> 的值。</p>
+<p>运算过程：如果布尔表达式的值为<code>true</code>  ，则返回  <code>表达式1</code>  的值，否则返回  <code>表达式2</code>  的值。</p>
 <h4 id="just-a-try">Just a try</h4>
-<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG"></p>
+<p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG"></p>
 <blockquote>
 <p>note:## 离线写博客</p>
 </blockquote>
 <p>即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入<a href="http://write.blog.csdn.net/mdeditor">write.blog.csdn.net/mdeditor</a>即可。<strong>Markdown编辑器</strong>使用浏览器离线存储将内容保存在本地。</p>
 <p>用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。</p>
 <p>博客发表后，本地缓存将被删除。</p>
-<p>用户可以选择 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。</p>
+<p>用户可以选择  把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。</p>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
 </blockquote>
