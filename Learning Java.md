@@ -149,6 +149,7 @@ a <span class="token operator">=</span> <span class="token punctuation">(</span>
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s="</span><span class="token operator">+</span>s<span class="token operator">+</span><span class="token string">",i="</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
+    
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Test test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
