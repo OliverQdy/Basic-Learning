@@ -100,6 +100,95 @@ a <span class="token operator">=</span> <span class="token punctuation">(</span>
 <h4 id="just-a-try">Just a try</h4>
 <p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/java%20try.PNG"></p>
 <p><img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/trycomplete.PNG"></p>
+<h3 id="数组表达方式">4.1数组表达方式</h3>
+<ul>
+<li>形如<code>int []a1 = { xxx }</code>或</li>
+</ul>
+<pre class=" language-java"><code class="prism  language-java">数组名 <span class="token operator">=</span> <span class="token keyword">new</span> 数组类型<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="java方法">5.Java方法</h3>
+<h4 id="概述">5.1概述</h4>
+<p>以如下为例：</p>
+<pre class=" language-java"><code class="prism  language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>println() 是一个方法</li>
+<li>System 是系统类</li>
+<li>out 是标准输出对象<br>
+因此，这句话是指调用系统类 System 中的标准输出对象 out 中的方法 println()。</li>
+</ul>
+<p>理解：Java中的方法，我们可以将其看成一个功能的集合，他们是为了解决特定问题的代码组合。</p>
+<h4 id="方法的语法">5.2方法的语法</h4>
+<p>方法的定义语法：</p>
+<pre class=" language-java"><code class="prism  language-java">访问修饰符 返回值类型 方法名<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    方法体
+<span class="token punctuation">}</span>
+</code></pre>
+<p>名词解释：</p>
+<ol>
+<li>访问修饰符：代表方法允许被访问的权限范围， 可以是 public、protected、private 甚至可以省略 ，其中 public 表示该方法可以被其他任何代码调用</li>
+<li>参数列表：是传递给方法的参数列表，参数可以有多个，多个参数间以逗号隔开，每个参数由参数类型和参数名组成，以空格隔开。当方法被调用时，传递值给参数。这个值被称为实参或变量。参数列表是指方法的参数类型、顺序和参数的个数。参数是可选的，方法可以不包含任何参数。</li>
+<li>方法体：具体实现功能的语句</li>
+</ol>
+<h4 id="方法的重载">5.3方法的重载</h4>
+<p>在Java中通过在类中写多个方法，这类方法的方法名相同，方法的<code>参数列表不同</code>（参数的个数和参数类型的不同）来实现方法的重载。所谓方法重载就是：在一个类中，有一系列的方法具有方法名相同，但参数列表不同，这类方法的实现就是方法重载。</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"i="</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">float</span> f<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"f="</span> <span class="token operator">+</span> f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span>String s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s="</span> <span class="token operator">+</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span>String s1<span class="token punctuation">,</span> String s2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s1+s2="</span><span class="token operator">+</span><span class="token punctuation">(</span>s1<span class="token operator">+</span>s2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span>String s<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"s="</span><span class="token operator">+</span>s<span class="token operator">+</span><span class="token string">",i="</span><span class="token operator">+</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Test test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">3456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">34.56f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span><span class="token string">"def"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        test<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">,</span><span class="token number">3456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>运行结果：<br>
+<code>i=3456 &lt;br&gt; f=34.56 &lt;br&gt; s=abc &lt;br&gt; s1+s2=abcdef &lt;br&gt; s=abc i=3456</code><br>
+在进行方法重载的时候需要遵循以下的规则：</p>
+<p><s>-   在使用方法重载的时候，必须通过方法中不同的参数列表来实现方法的重载。如：方法的参数个数不同或者方法的参数类型不同。</s></p>
+<ul>
+<li>不能通过访问权限，返回值类型和抛出的异常来实现重载</li>
+<li>重载的方法中允许抛出不同的异常  <code>？</code></li>
+<li>可以有不同的返回值类型，只要方法的参数列表不同即可</li>
+<li>可以有不同的访问修饰符  <code>?</code></li>
+</ul>
+<p>关于返回值<strong>注意点</strong>：</p>
+<ol>
+<li>
+<p>如果方法的返回类型为 void ，则方法中不能使用 return 返回值。</p>
+</li>
+<li>
+<p>方法的返回值最多只能有一个，不能返回多个值。</p>
+</li>
+<li>
+<p>方法返回值的类型必须兼容，也就是说如果返回值类型为 int ，则不能返回 String 型值</p>
+</li>
+<li>
+<p>调用带返回值的方法时，由于方法执行后会返回一个结果，因此在调用带返回值方法时一般都会接收其返回值并进行处理</p>
+</li>
+</ol>
+<p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
+<p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>variable_type variable<span class="token operator">:</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>5.15今日一问：Java输出时咋控制换行等格式呢（为啥是默认换行——见5.3结果）</p>
 <blockquote>
 <p>note:## 离线写博客</p>
 </blockquote>
