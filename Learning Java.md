@@ -185,11 +185,126 @@ a <span class="token operator">=</span> <span class="token punctuation">(</span>
 <p>调用带返回值的方法时，由于方法执行后会返回一个结果，因此在调用带返回值方法时一般都会接收其返回值并进行处理</p>
 </li>
 </ol>
+<h3 id="对象、类">6.对象、类</h3>
+<h4 id="何为面向对象">6.1何为面向对象</h4>
+<p>首先明确何为对象，自然不是象棋中的“对相（象）”2333，它也不是一类事物的集合。对象一定是一个具体的、确定的物体，如：具有某种功能的手机并不是，而（我用的）小米9SE就是一个对象。</p>
+<p>而这部手机它的样式，颜色，大小，产地，编号等等，便是这部手机的“属性”，这部手机可以打电话、发短信，便是它的“行为”。<br>
+<code>属性</code>：是对象具有的特征。每个对象的每个属性都拥有特定值<br>
+<code>行为</code>：我们通过方法去实现对象的行为，而对象的方法便是对象所具有的操作，比如人会走路、会哭泣、会学习等等都是人的行为，也就是人的方法。</p>
+<p>面向对象的思想，体现的是人所关注对象的信息聚集在了一个具体的物体上。我们通过对象的属性和行为来了解对象。</p>
+<h4 id="类">6.2类</h4>
+<p>类是封装对象的属性和行为的载体，反过来说具有相同属性和行为的一类实体被称为类。</p>
+<p>由此我们可以总结出<strong>类的定义</strong>：</p>
+<ol>
+<li>
+<p>类是相同或相似对象的一种抽象，是对象的一个模板，它<strong>描述一类对象的行为和状态</strong>。</p>
+</li>
+<li>
+<p>类是具有相同属性和方法（行为）的对象的集合<br>
+即：可以理解成 对象的行为和属性为类这个集合的元素</p>
+</li>
+</ol>
+<blockquote>
+<p>Java 是面向对象的语言，而他的体现就在于Java程序都以类 class 为组织单元。而一个类是对象的抽象，所以类由属性和方法两部分组成。</p>
+</blockquote>
+<h4 id="构造类及方法">6.3构造类及方法</h4>
+<ul>
+<li>构造类</li>
+</ul>
+<pre class=" language-java"><code class="prism  language-java"><span class="token comment">//I.定义类名</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> 类名<span class="token punctuation">{</span>
+<span class="token comment">//II.定义属性部分（成员变量）</span>
+属性<span class="token number">1</span>的类型 属性<span class="token number">1</span><span class="token punctuation">;</span>
+属性<span class="token number">2</span>的类型 属性<span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token comment">//III.定义方法部分</span>
+方法<span class="token number">1</span><span class="token punctuation">;</span>
+方法<span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注：一个类可以包含以下<code>类型变量</code>：</p>
+<ul>
+<li>
+<p>局部变量：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。</p>
+</li>
+<li>
+<p>成员变量：成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。</p>
+</li>
+<li>
+<p>类变量：也叫静态变量，类变量也声明在类中，方法体之外，但必须声明为static类型。</p>
+</li>
+<li>
+<p>构造方法：</p>
+</li>
+</ul>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span><span class="token punctuation">{</span>
+    <span class="token comment">//无参构造方法</span>
+    <span class="token keyword">public</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token comment">//有一个参数的构造方法</span>
+    <span class="token keyword">public</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token keyword">int</span> age<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>又例如具体的构造方法：</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
+<span class="token comment">//属性（成员变量）有什么</span>
+    <span class="token keyword">double</span> height<span class="token punctuation">;</span>     <span class="token comment">//身高</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>           <span class="token comment">//年龄</span>
+    <span class="token keyword">int</span> sex<span class="token punctuation">;</span>       <span class="token comment">//性别，0为男性，非0为女性</span>
+
+    <span class="token comment">//构造函数，初始化了所有属性</span>
+    <span class="token keyword">public</span> <span class="token function">People</span><span class="token punctuation">(</span><span class="token keyword">double</span> h<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        height <span class="token operator">=</span> h<span class="token punctuation">;</span>
+        age <span class="token operator">=</span> a<span class="token punctuation">;</span>
+        sex <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<pre class=" language-java"><code class="prism  language-java"><span class="token comment">//创建对象，调用我们自己定义的有参构造方法</span>
+People XiaoMing <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token number">168</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>上面的例子中通过<code>new</code>关键字将类实例化成对象，而<code>new</code>后面跟的就是构造方法。于是可以知道<code>new + 构造方法</code>可以创建一个新的对象。</strong></p>
+<blockquote>
+<p>2、如果我们在定义类的时候没有写构造方法，系统会默认给我们生成一个无参构造方法，不过这个构造方法什么也不会做。</p>
+<p>3、当有指定的构造方法时，系统都不会再为我们添加无参构造方法了。</p>
+<p>4、构造方法的重载：方法名相同，但参数不同的多个方法，调用时会自动根据不同的参数选择相应的方法。<br>
+——纯属摘抄，过目一遍即可，易理解</p>
+</blockquote>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
 <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>variable_type variable<span class="token operator">:</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
-<p>5.15今日一问：Java输出时咋控制换行等格式呢（为啥是默认换行——见5.3结果）</p>
+<p>5.15今日一问：Java输出时咋控制换行等格式呢（为啥是默认换行——见5.3结果）<br>
+5.16。有空实现一下，看看这个类如何得到age</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
+<span class="token comment">//属性（成员变量） 有什么</span>
+    <span class="token keyword">double</span> height<span class="token punctuation">;</span>  <span class="token comment">//身高</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>     <span class="token comment">//年龄</span>
+    <span class="token keyword">int</span> sex<span class="token punctuation">;</span>    <span class="token comment">//性别，0为男性，非0为女性</span>
+
+<span class="token comment">//方法 干什么</span>
+    <span class="token keyword">void</span> <span class="token function">cry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我在哭！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">laugh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我在笑！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">printBaseMes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的身高是"</span><span class="token operator">+</span>height<span class="token operator">+</span><span class="token string">"cm"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我的年龄是"</span><span class="token operator">+</span>age<span class="token operator">+</span><span class="token string">"岁"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sex<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我是男性！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> 
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"我是女性！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <blockquote>
 <p>note:## 离线写博客</p>
 </blockquote>
