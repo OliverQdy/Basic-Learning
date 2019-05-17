@@ -275,12 +275,28 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <p>4、构造方法的重载：方法名相同，但参数不同的多个方法，调用时会自动根据不同的参数选择相应的方法。<br>
 ——纯属摘抄，过目一遍即可，易理解</p>
 </blockquote>
+<p><strong>注意</strong>：定义类的时候是不会为类开辟内存空间的，但是一旦创建了对象，系统就会在内存中为对象开辟一块空间，用来存放对象的属性值和方法。</p>
+<p>在我们定义对象属性时出现的变量叫成员变量，是在类中定义，来描述对象的特性。还有一种变量叫局部变量，它是由类的方法定义，在方法中临时保存数据。<br>
+<img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/%E6%88%90%E5%8F%82%E4%B8%8E%E5%B1%80%E5%8F%82.png" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learing/master/%E6%88%90%E5%8F%82%E4%B8%8E%E5%B1%80%E5%8F%82.png"></p>
+<p>使用时注意，我们的成员变量可以被本类的所有方法所使用，同时可以被与本类有关的其他类所使用。而我们的局部变量只能在当前的方法中使用。<br>
+即：二者作用域有差别</p>
+<ol>
+<li>
+<p>局部变量的作用域仅限于定义它的方法内。而成员变量的作用域在整个类内部都是可见的。</p>
+</li>
+<li>
+<p>同时在相同的方法中，不能有同名的局部变量；在不同的方法中，可以有同名的局部变量。</p>
+</li>
+<li>
+<p>成员变量和局部变量同名时，<strong>局部变量具有更高的优先级</strong>。</p>
+</li>
+</ol>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
 <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>variable_type variable<span class="token operator">:</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
 <p>5.15今日一问：Java输出时咋控制换行等格式呢（为啥是默认换行——见5.3结果）<br>
-5.16。有空实现一下，看看这个类如何得到age</p>
+5.16。<s>有空实现一下，看看这个类如何得到age</s>,done</p>
 <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
 <span class="token comment">//属性（成员变量） 有什么</span>
     <span class="token keyword">double</span> height<span class="token punctuation">;</span>  <span class="token comment">//身高</span>
