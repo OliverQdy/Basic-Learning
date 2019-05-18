@@ -291,11 +291,40 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <p>成员变量和局部变量同名时，<strong>局部变量具有更高的优先级</strong>。</p>
 </li>
 </ol>
+<h3 id="封装">7 封装</h3>
+<h4 id="概念">7.1概念</h4>
+<p>封装是指，一种将抽象性函式接口的实例细节部份包装、隐藏起来的方法。封装可以被认为是一个保护屏障，防止该类的代码和数据被外部类定义的代码随机访问。要访问该类的代码和数据，必须通过严格的接口控制，通过该类提供的方法来实现对隐藏信息的操作和访问。</p>
+<ul>
+<li>如何去实现类的封装呢？</li>
+</ul>
+<ol>
+<li>
+<p>修改属性的可见性，在属性的前面添加修饰符(private 后面会讲)</p>
+</li>
+<li>
+<p>对每个值属性提供对外的公共方法访问，如创建 getter/setter（取值和赋值） 方法，用于对私有属性的访问</p>
+</li>
+<li>
+<p>在 getter/setter 方法里加入属性的控制语句，例如我们可以加一个判断语句，对于非法输入给予否定。</p>
+</li>
+</ol>
+<h4 id="包">7.2包</h4>
+<p><strong>包的作用</strong></p>
+<ul>
+<li>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用。</li>
+<li>采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。</li>
+<li>限定了访问权限，拥有包访问权限的类才能访问某个包中的类。</li>
+</ul>
+<p>Notes：<strong>如何在不同的包使用另一个文件中的类？</strong><br>
+这时候就需要用到<code>import</code>关键字。比如我们要导入包<code>com.shiyanlou</code>下<code>People</code>这个类。<code>import com.shiyanlou.People</code>，同时如果<code>import com.shiyanlou.*</code>这是将包下的所有文件都导入进来，<code>*</code>是通配符。</p>
+<p>这里要注意一点，包的命名规范是全小写字母拼写</p>
+<hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
 <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>variable_type variable<span class="token operator">:</span>target<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
 <p>5.15今日一问：Java输出时咋控制换行等格式呢（为啥是默认换行——见5.3结果）<br>
+（5.18目前已知：<code>System.out.print</code> 和<code>System.out.println</code>区别就在于后者输出语句后会执行换行操作）<br>
 5.16。<s>有空实现一下，看看这个类如何得到age</s>,done</p>
 <pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
 <span class="token comment">//属性（成员变量） 有什么</span>
