@@ -318,6 +318,72 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <p>Notes：<strong>如何在不同的包使用另一个文件中的类？</strong><br>
 这时候就需要用到<code>import</code>关键字。比如我们要导入包<code>com.shiyanlou</code>下<code>People</code>这个类。<code>import com.shiyanlou.People</code>，同时如果<code>import com.shiyanlou.*</code>这是将包下的所有文件都导入进来，<code>*</code>是通配符。</p>
 <p>这里要注意一点，包的命名规范是全小写字母拼写</p>
+<p>About 访问修饰符：<br>
+访问修饰符可以用来修饰属性和方法的访问范围</p>
+
+<table>
+<thead>
+<tr>
+<th>访问修饰符</th>
+<th>本类</th>
+<th>同包</th>
+<th>子类</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>default</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protected</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>public</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table><p>another points:<br>
+在书写代码(封装)的过程中常常会用到<code>this</code>关键字，<code>this</code>关键字代表当前对象。使用<code>this.属性</code>操作当前对象的属性，<code>this.方法</code>调用当前对象的方法。</p>
+<p>另，在用<code>private</code>修饰的属性时，我们利用对象访问，必须定义getter和setter方法，Eclipse可以自动帮我们定义。</p>
+<ul>
+<li>可以通过在菜单栏里点击<code>Source</code>也可以在左侧右击选择<code>Source</code>。来达到设置<code>this</code>的效果</li>
+</ul>
+<h4 id="内部类">7.3内部类</h4>
+<p>将一个类的定义放在另一个类的定义内部，这就是内部类<br>
+内部类的主要作用如下：</p>
+<ol>
+<li>
+<p>内部类提供了更好的封装，可以把内部类隐藏在外部类之内，不允许同一个包中的其他类访问该类</p>
+</li>
+<li>
+<p>内部类的方法可以直接访问外部类的所有数据，包括私有的数据</p>
+</li>
+<li>
+<p>内部类所实现的功能使用外部类同样可以实现，只是有时使用内部类更方便</p>
+</li>
+<li>
+<p>内部类允许继承多个非接口类型（具体将在以后的内容进行讲解）</p>
+</li>
+</ol>
 <hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
