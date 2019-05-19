@@ -384,6 +384,26 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <p>内部类允许继承多个非接口类型（具体将在以后的内容进行讲解）</p>
 </li>
 </ol>
+<blockquote>
+<p>注：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。所以内部类的成员变量/方法名可以和外部类的相同。</p>
+</blockquote>
+<p>分类：</p>
+<ul>
+<li>静态内部类<br>
+静态内部类通常被称为嵌套类<br>
+静态内部类是 static 修饰的内部类，这种内部类的特点是：</li>
+</ul>
+<ol>
+<li>
+<p>静态内部类不能直接访问外部类的非静态成员，但可以通过  <code>new 外部类().成员</code>  的方式访问</p>
+</li>
+<li>
+<p>如果外部类的静态成员与内部类的成员名称相同，可通过<code>类名.静态成员</code>访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过<code>成员名</code>直接调用外部类的静态成员</p>
+</li>
+<li>
+<p>创建静态内部类的对象时，不需要外部类的对象，可以直接创建  <code>内部类 对象名= new 内部类();</code></p>
+</li>
+</ol>
 <hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
