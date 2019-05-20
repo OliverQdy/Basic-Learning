@@ -387,6 +387,9 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <blockquote>
 <p>注：内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。所以内部类的成员变量/方法名可以和外部类的相同。</p>
 </blockquote>
+<p>内部类使用方法：<br>
+定义成员内部类后，必须使用外部类对象来创建内部类对象，即 <code>内部类 对象名 = 外部类对象.new 内部类();</code><br>
+因此，在定义内部类对象前一定要先定义外部类对象。（其他使用方法如果遇到疑惑再挂上来）</p>
 <p>分类：</p>
 <ul>
 <li>静态内部类<br>
@@ -401,9 +404,47 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <p>如果外部类的静态成员与内部类的成员名称相同，可通过<code>类名.静态成员</code>访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过<code>成员名</code>直接调用外部类的静态成员</p>
 </li>
 <li>
-<p>创建静态内部类的对象时，不需要外部类的对象，可以直接创建  <code>内部类 对象名= new 内部类();</code></p>
+<p><strong>创建静态内部类的对象时，不需要外部类的对象，可以直接创建  <code>内部类 对象名= new 内部类();</code></strong>（明显与内部类的区别）</p>
 </li>
 </ol>
+<p>以实验楼中代码为例：</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token comment">//外部类People</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String name <span class="token operator">=</span> <span class="token string">"LiLei"</span><span class="token punctuation">;</span>         <span class="token comment">//外部类的私有属性</span>
+<span class="token comment">/*外部类的静态变量。
+Java 中被 static 修饰的成员称为静态成员或类成员。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。
+*/</span>
+    <span class="token keyword">static</span> String ID <span class="token operator">=</span> <span class="token string">"510xxx199X0724XXXX"</span><span class="token punctuation">;</span> 
+
+    <span class="token comment">//静态内部类Student</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+        String ID <span class="token operator">=</span> <span class="token string">"20151234"</span><span class="token punctuation">;</span>               <span class="token comment">//内部类的成员属性</span>
+        <span class="token comment">//内部类的方法</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stuInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"访问外部类中的name："</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"访问外部类中的ID："</span> <span class="token operator">+</span> People<span class="token punctuation">.</span>ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"访问内部类中的ID："</span> <span class="token operator">+</span> ID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//测试成员内部类</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Student b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//直接创建内部类对象，对象名为b</span>
+        b<span class="token punctuation">.</span><span class="token function">stuInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment">//调用内部对象的suInfo方法</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>非常具体详细的说明了，上述输出答案易知。</p>
+<ul>
+<li>
+<p>局部内部类<br>
+局部内部类也像别的类一样进行编译，但只是作用域不同而已，只在该方法或条件的作用域内才能使用，退出这些作用域后无法引用的。</p>
+</li>
+<li>
+<p>匿名内部类（等我以后回来，现在有些迷）</p>
+</li>
+<li></li>
+</ul>
 <hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
