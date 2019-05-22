@@ -456,6 +456,7 @@ Java 中被 static 修饰的成员称为静态成员或类成员。它属于整�
 <li>子类可以重写实现父类的方法</li>
 <li>Java 中的继承是单继承，一个类只有一个父类</li>
 </ul>
+<p>继承实例见Java文件</p>
 <blockquote>
 <p>注： Java 实现多继承的一个办法是 implements（实现）接口</p>
 </blockquote>
