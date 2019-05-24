@@ -120,9 +120,9 @@ a <span class="token operator">=</span> <span class="token punctuation">(</span>
 <p>理解：Java中的方法，我们可以将其看成一个功能的集合，他们是为了解决特定问题的代码组合。</p>
 <h4 id="方法的语法">5.2方法的语法</h4>
 <p>方法的定义语法：</p>
-<pre class=" language-java"><code class="prism  language-java">访问修饰符 返回值类型 方法名<span class="token punctuation">(</span>参数列表<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre><code>访问修饰符 返回值类型 方法名(参数列表){
     方法体
-<span class="token punctuation">}</span>
+}
 </code></pre>
 <p>名词解释：</p>
 <ol>
@@ -263,7 +263,6 @@ a <span class="token operator">=</span> <span class="token punctuation">(</span>
         sex <span class="token operator">=</span> s<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-
 </code></pre>
 <pre class=" language-java"><code class="prism  language-java"><span class="token comment">//创建对象，调用我们自己定义的有参构造方法</span>
 People XiaoMing <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token number">168</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -411,8 +410,7 @@ People XiaoMing <span class="token operator">=</span> <span class="token keyword
 <pre class=" language-java"><code class="prism  language-java"><span class="token comment">//外部类People</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">People</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> String name <span class="token operator">=</span> <span class="token string">"LiLei"</span><span class="token punctuation">;</span>         <span class="token comment">//外部类的私有属性</span>
-<span class="token comment">/*外部类的静态变量。
-Java 中被 static 修饰的成员称为静态成员或类成员。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。
+<span class="token comment">/*外部类的静态变量。Java 中被 static 修饰的成员称为静态成员或类成员。它属于整个类所有，而不是某个对象所有，即被类的所有对象所共享。静态成员可以使用类名直接访问，也可以使用对象名进行访问。
 */</span>
     <span class="token keyword">static</span> String ID <span class="token operator">=</span> <span class="token string">"510xxx199X0724XXXX"</span><span class="token punctuation">;</span> 
 
@@ -482,8 +480,7 @@ Java 中被 static 修饰的成员称为静态成员或类成员。它属于整�
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         Animal a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Animal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         Animal b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         Dog d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
@@ -510,7 +507,94 @@ Java 中被 static 修饰的成员称为静态成员或类成员。它属于整�
 <li>抽象类&amp;抽象方法；</li>
 <li>接口实现；</li>
 </ol>
-<p>5.22杂笔：后面两个看起来好复杂，先歇菜了2333，明天复习概率论加油</p>
+<p><s>5.22杂笔：后面两个看起来好复杂，先歇菜了2333，明天复习概率论加油</s></p>
+<ul>
+<li>抽象类&amp;抽象方法<br>
+Java提供了一个叫做抽象方法的机制，这种方法是不完整的，仅有声明而没有方法体。抽象方法声明语法如下：</li>
+</ul>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//f()方法时抽象方法</span>
+</code></pre>
+<p>同理抽象类</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span><span class="token operator">/</span><span class="token keyword">private</span><span class="token operator">/</span><span class="token keyword">protected</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">XXX</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>抽象类的作用</p>
+<ol>
+<li>
+<p>在某些情况下，某个父类只是知道其子类应该包含怎样的方法，但无法准确知道这些子类如何实现这些方法。也就是说抽象类是约束子类必须要实现哪些方法，而并不关注方法如何去实现。</p>
+</li>
+<li>
+<p>从多个具有相同特征的类中抽象出一个抽象类，以这个抽象类作为子类的模板，从而避免了子类设计的随意性。</p>
+</li>
+</ol>
+<p>抽象类的实现规则：</p>
+<ol>
+<li>
+<p>用 abstract 修饰符定义抽象类和抽象方法，只用声明，不需要实现</p>
+</li>
+<li>
+<p>包含抽象方法的类就是抽象类</p>
+</li>
+<li>
+<p>抽象类中可以包含普通的方法，也可以没有抽象方法  （<strong>little confused</strong>）</p>
+</li>
+<li>
+<p>抽象类的对象不能直接创建，我们通常是定义引用变量指向子类对象。</p>
+</li>
+</ol>
+<ul>
+<li>接口实现</li>
+</ul>
+<p>abstract 关键字允许人们在类中创建一个或多个没有任何定义的方法，而 interface 使抽象的概念更向前迈进了一步。<br>
+接口的声明语法格式如下：</p>
+<pre class=" language-java"><code class="prism  language-java">修饰符 <span class="token keyword">interface</span> 接口名称 <span class="token punctuation">[</span><span class="token keyword">extends</span> 其他的类名<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 声明变量</span>
+        <span class="token comment">// 抽象方法</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>如声明一个 Animal 接口：</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">interface</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
+        <span class="token comment">//int x;</span>
+        <span class="token comment">//编译错误,x需要初始化，因为是 static final 类型</span>
+        <span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>Q</strong>:在接口中，变量都是static final类型吗？什么式static final类型</p>
+<p><strong>注意点</strong>：在<code>Java8</code>中</p>
+<ul>
+<li>接口不能用于实例化对象</li>
+<li>接口中方法只能是抽象方法、default方法、静态方法</li>
+<li>接口成员是 static final 类型</li>
+<li>接口支持多继承<br>
+在<code>Java9</code>中，接口可以拥有私有方法和私有静态方法。default方法和静态方法可以使用它们。</li>
+</ul>
+<p>而现在已经Java11了(?)，有空可以去Oracle官网教程看看有啥变动</p>
+<p>多继承实现方式：</p>
+<pre class=" language-java"><code class="prism  language-java">修饰符 <span class="token keyword">interface</span> <span class="token class-name">A</span> <span class="token keyword">extends</span> 接口<span class="token number">1</span>，接口<span class="token number">2</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+修饰符 <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token keyword">implements</span> 接口<span class="token number">1</span>，接口<span class="token number">2</span><span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span> 
+</code></pre>
+<p>实现上面的接口：</p>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">implements</span> <span class="token class-name">Animal</span><span class="token punctuation">{</span>
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Cat eats"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">travel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Cat travels"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Cat cat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cat<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cat<span class="token punctuation">.</span><span class="token function">travel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>5.24杂笔：关于接口还是一知半解，希望自己Java head first的书赶快追上进度，多实践一下</p>
 <hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
