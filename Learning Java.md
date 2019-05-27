@@ -595,6 +595,70 @@ Java提供了一个叫做抽象方法的机制，这种方法是不完整的，�
 <span class="token punctuation">}</span>
 </code></pre>
 <p>5.24杂笔：关于接口还是一知半解，希望自己Java head first的书赶快追上进度，多实践一下</p>
+<h3 id="java中的异常">10 Java中的异常</h3>
+<p>之所以要处理异常，也是为了增强程序的<a href="http://baike.baidu.com/view/45520.htm">鲁棒性</a>。</p>
+<blockquote>
+<p>鲁棒是Robust的音译，也就是健壮和强壮的意思。</p>
+</blockquote>
+<p>异常都是从<code>Throwable</code>类派生出来的，而<code>Throwable</code>类是直接从<code>Object</code>类继承而来。可以在Java SE官方API文档中获取更多关于它们的知识。</p>
+<p>异常通常有四类：</p>
+<ul>
+<li>Error：系统内部错误，这类错误由系统进行处理，程序本身无需捕获处理</li>
+<li>Exception：可以处理的异常</li>
+<li>RuntimeException：可以捕获，也可以不捕获的异常</li>
+<li>继承Exception的其他类：必须捕获，通常在API文档中会说明这些方法抛出哪些异常</li>
+</ul>
+<h5 id="算术异常（arithmeticexception）">10.1.1 算术异常（ArithmeticException）</h5>
+<p>Java SE官方文档对于算术异常的定义是：</p>
+<blockquote>
+<p>当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。<br>
+模拟出现算术异常的情况， 主要的代码如下：</p>
+</blockquote>
+<pre class=" language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AriExceptionTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Example 1:  -1.0 / 0 = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1.0</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 演示负浮点数除0</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Example 2:  +1.0 / 0 = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">1.0</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 演示正浮点数除0</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Example 3:  -1 / 0 = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 演示负整数除0</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Example 4:  +1 / 0 = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">1</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 演示正整数除0</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>结果如下<br>
+<img src="https://raw.githubusercontent.com/OliverQdy/Basic-Learning/master/ariexceptionTest.PNG" alt="https://raw.githubusercontent.com/OliverQdy/Basic-Learning/master/ariexceptionTest.PNG"></p>
+<p>可以看到，实际上程序在运行到Example 3的时候就已经出现了算数异常。当代码抛出一个异常的同时，也终止了对剩余代码的处理，所以Example 4根本没有机会执行。</p>
+<p>那么Example 1和2中为什么能出现结果呢？</p>
+<p>这是由于在Java中，浮点数（无论是float还是double类型的浮点数）被0除，并不会引发算术异常。具体说来，是操作系统为了保护应用软件而已经处理了该异常，不再抛出，最终运算结果是无穷大。</p>
+<h5 id="数组下标越界异常（arrayindexoutofboundsexception）">10.1.2 数组下标越界异常（ArrayIndexOutOfBoundsException）</h5>
+<p>Java SE官方文档对于数组下标越界异常的定义是：</p>
+<blockquote>
+<p>用非法索引访问数组时抛出的异常。如果索引为负或大于等于数组大小，则该索引为非法索引。</p>
+</blockquote>
+<h5 id="空指针异常（nullpointerexception）">10.1.3 空指针异常（NullPointerException）</h5>
+<p>Java SE官方文档对于空指针异常的定义是：</p>
+<blockquote>
+<p>当应用程序试图在需要对象的地方使用 null 时，抛出该异常。这种情况包括：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>调用 null 对象的实例方法。</li>
+<li>访问或修改 null 对象的字段。</li>
+<li>将 null 作为一个数组，获得其长度。</li>
+<li>将 null 作为一个数组，访问或修改其时间片。</li>
+<li>将 null 作为 Throwable 值抛出。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>应用程序应该抛出该类的实例，指示其他对 null 对象的非法使用。</p>
+</blockquote>
+<h4 id="自定义异常">10.2自定义异常</h4>
+<p>自定义一个异常类非常简单，只需要让它<strong>继承Exception或其子类</strong>就行。在自定义异常类的时候，建议同时提供无参构造方法和带字符串参数的构造方法，后者可以为你在调试时提供更加详细的信息。我们可以据此构造需要的异常，来方便我们的编程</p>
 <hr>
 <p>5.13 Tips:C语言中，非零即为true，而在Java中则不同，boolean函数只能用true和false</p>
 <p>5.14 Tips:for 语句在数组内可以使用特殊简化版本，在遍历数组、集合时，foreach 更简单便捷。从英文字面意思理解 foreach 也就是“ for 每一个”的意思。</p>
